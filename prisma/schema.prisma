@@ -1,0 +1,81 @@
+// This is your Prisma schema file
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String
+  dateOfBirth   DateTime  @map("date_of_birth")
+  role          Role      @default(PARENT)
+  children      Child[]
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  
+  @@map("users")
+}
+
+model Child {
+  id            String    @id @default(cuid())
+  name          String
+  dateOfBirth   DateTime  @map("date_of_birth")
+  parentId      String    @map("parent_id")
+  parent        User      @relation(fields: [parentId], references: [id], onDelete: Cascade)
+  courses       Course[]
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  @@map("children")
+}
+
+model Course {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  startDate   DateTime  @map("start_date")
+  endDate     DateTime  @map("end_date")
+  capacity    Int
+  children    Child[]
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("courses")
+}
+
+model Event {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  date        DateTime
+  location    String
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("events")
+}
+
+model Donation {
+  id          String    @id @default(cuid())
+  amount      Float
+  currency    String
+  status      String
+  donorName   String    @map("donor_name")
+  email       String
+  message     String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("donations")
+}
+
+enum Role {
+  ADMIN
+  PARENT
+}

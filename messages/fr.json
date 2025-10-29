@@ -1,0 +1,20 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "events": "Événements",
+    "donations": "Dons",
+    "courses": "Cours",
+    "dashboard": "Tableau de bord"
+  },
+  "auth": {
+    "signIn": "Connexion",
+    "signOut": "Déconnexion",
+    "register": "S'inscrire"
+  },
+  "dashboard": {
+    "welcome": "Bienvenue, {name}",
+    "events": "Événements à venir",
+    "courses": "Cours disponibles",
+    "donations": "Dons récents"
+  }
+}

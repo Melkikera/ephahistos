@@ -1,0 +1,20 @@
+{
+  "navigation": {
+    "home": "Home",
+    "events": "Events",
+    "donations": "Donations",
+    "courses": "Courses",
+    "dashboard": "Dashboard"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "register": "Register"
+  },
+  "dashboard": {
+    "welcome": "Welcome, {name}",
+    "events": "Upcoming Events",
+    "courses": "Available Courses",
+    "donations": "Recent Donations"
+  }
+}
