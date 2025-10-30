@@ -8,7 +8,7 @@
   },
   "auth": {
     "signIn": "Sign In",
-    "signOut": "Sign Out",
+    "signOut": "Sign out",
     "register": "Register"
   },
   "dashboard": {
