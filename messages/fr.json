@@ -1,10 +1,12 @@
 {
   "navigation": {
+    "signOut": "Déconnexion",
+    "dashboard": "Tableau de bord",
     "home": "Accueil",
     "events": "Événements",
     "donations": "Dons",
     "courses": "Cours",
-    "dashboard": "Tableau de bord"
+    "requiresAuth": "Veuillez vous connecter pour accéder à cette fonctionnalité"
   },
   "auth": {
     "signIn": "Connexion",

@@ -4,7 +4,8 @@
     "events": "Events",
     "donations": "Donations",
     "courses": "Courses",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "requiresAuth": "Please sign in to access this feature"
   },
   "auth": {
     "signIn": "Sign In",

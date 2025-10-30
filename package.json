@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed:test": "node scripts/seedTestUsers.js",
+    "test:auth": "node scripts/testAuthAutomated.js",
+    "cleanup:test": "node scripts/cleanupTestUsers.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
