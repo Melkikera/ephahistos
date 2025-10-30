@@ -15,10 +15,11 @@
     "register": "S'inscrire"
   },
   "dashboard": {
-    "welcome": "Bienvenue, {name}",
+    "welcome": "Bienvenue, {name}!",
     "events": "Événements à venir",
     "courses": "Cours disponibles",
-    "donations": "Dons récents"
+    "donations": "Dons récents",
+    "guest": "Invité"
   },
   "about": {
     "title": "À Propos de Moi",

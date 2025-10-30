@@ -14,7 +14,8 @@
     "register": "Register"
   },
   "dashboard": {
-    "welcome": "Welcome, {name}",
+    "welcome": "Welcome, {name}!",
+    "guest": "Guest",
     "events": "Upcoming Events",
     "courses": "Available Courses",
     "donations": "Recent Donations"

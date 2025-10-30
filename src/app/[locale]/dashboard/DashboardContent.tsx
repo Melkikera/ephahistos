@@ -1,5 +1,6 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import DashboardCard from '@/components/DashboardCard';
 import {
@@ -11,6 +12,7 @@ import type { DashboardData } from './actions';
 
 export default function DashboardContent({ data }: { data: DashboardData }) {
   const t = useTranslations('dashboard');
+  const { data: session } = useSession();
 
   const donationsDisplay = new Intl.NumberFormat(undefined, {
     style: 'currency',
@@ -21,7 +23,7 @@ export default function DashboardContent({ data }: { data: DashboardData }) {
   return (
     <div className="py-6">
       <h1 className="text-3xl font-bold text-gray-900 mb-8">
-        {t('welcome', { name: 'User' })}
+        {t('welcome', { name: session?.user?.name || t('guest') })}
       </h1>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
