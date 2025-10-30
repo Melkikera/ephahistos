@@ -5,7 +5,8 @@
     "donations": "Donations",
     "courses": "Courses",
     "dashboard": "Dashboard",
-    "requiresAuth": "Please sign in to access this feature"
+    "requiresAuth": "Please sign in to access this feature",
+    "about": "About"
   },
   "auth": {
     "signIn": "Sign In",
@@ -17,5 +18,14 @@
     "events": "Upcoming Events",
     "courses": "Available Courses",
     "donations": "Recent Donations"
+  },
+  "about": {
+    "title": "About Me",
+    "experience": {
+      "title": "Professional Experience"
+    },
+    "expertise": {
+      "title": "Areas of Expertise"
+    }
   }
 }

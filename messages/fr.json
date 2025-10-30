@@ -6,7 +6,8 @@
     "events": "Événements",
     "donations": "Dons",
     "courses": "Cours",
-    "requiresAuth": "Veuillez vous connecter pour accéder à cette fonctionnalité"
+    "requiresAuth": "Veuillez vous connecter pour accéder à cette fonctionnalité",
+    "about": "À Propos"
   },
   "auth": {
     "signIn": "Connexion",
@@ -18,5 +19,14 @@
     "events": "Événements à venir",
     "courses": "Cours disponibles",
     "donations": "Dons récents"
+  },
+  "about": {
+    "title": "À Propos de Moi",
+    "experience": {
+      "title": "Expérience Professionnelle"
+    },
+    "expertise": {
+      "title": "Domaines d'Expertise"
+    }
   }
 }

@@ -10,8 +10,27 @@ import { Transition } from '@headlessui/react';
 export default function Navigation() {
   const t = useTranslations('navigation');
   const ta = useTranslations('auth');
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
+
+  // Wait for auth to be determined before rendering protected content
+  if (status === 'loading') {
+    return (
+      <nav className="bg-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex">
+              <div className="shrink-0 flex items-center">
+                <span className="text-2xl font-bold text-indigo-600">
+                  EphaHistos
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className="bg-white shadow-lg">
@@ -27,26 +46,29 @@ export default function Navigation() {
               <Link href="/" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-indigo-600">
                 {t('home')}
               </Link>
+              <Link
+                href="/about"
+                className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              >
+                {t('about')}
+              </Link>
               {session && (
                 <>
                   <Link 
                     href="/events" 
                     className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-indigo-600"
-                    title={!session ? t('requiresAuth') : ''}
                   >
                     {t('events')}
                   </Link>
                   <Link 
                     href="/donations" 
                     className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-indigo-600"
-                    title={!session ? t('requiresAuth') : ''}
                   >
                     {t('donations')}
                   </Link>
                   <Link 
                     href="/courses" 
                     className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-indigo-600"
-                    title={!session ? t('requiresAuth') : ''}
                   >
                     {t('courses')}
                   </Link>
@@ -134,6 +156,13 @@ export default function Navigation() {
                 {t('home')}
               </Link>
               
+              <Link
+                href="/about"
+                className="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
+              >
+                {t('about')}
+              </Link>
+
               {session && (
                 <>
                   <Link
