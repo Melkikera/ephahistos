@@ -1,4 +1,4 @@
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 
 export type DashboardData = {
   events: number;
@@ -9,8 +9,8 @@ export type DashboardData = {
 
 export async function getDashboardData(): Promise<DashboardData> {
   const [events, courses, donationsCountResult, donationsSumResult] = await Promise.all([
-    prisma.event.count(),
-    prisma.course.count(),
+    prisma.event.count({where: { isDone: false }}),
+    prisma.course.count({ where: { startDate: { gt: new Date() } } }),
     prisma.donation.count(),
     prisma.donation.aggregate({ _sum: { amount: true } }),
   ]);

@@ -4,6 +4,7 @@ export type EventItem = {
   description: string;
   date: string; // ISO
   location: string;
+  isdone?: boolean;
 };
 
 const KEY = 'ephahistos_events_v1';

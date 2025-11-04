@@ -16,6 +16,7 @@ export default function EventForm({
   const [description, setDescription] = useState(initial?.description ?? '');
   const [date, setDate] = useState(initial ? new Date(initial.date).toISOString().slice(0,16) : '');
   const [location, setLocation] = useState(initial?.location ?? '');
+  const [isDone, setIsDone] = useState(initial?.isDone ?? false);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
@@ -38,18 +39,28 @@ export default function EventForm({
             <label className="block text-sm">Description</label>
             <textarea value={description} onChange={e => setDescription(e.target.value)} className="w-full border px-2 py-1" />
           </div>
+          <div>
+            <label className="inline-flex items-center">
+              <input
+                type="checkbox"
+                checked={isDone}
+                onChange={e => setIsDone(e.target.checked)}
+                className="form-checkbox"
+              />
+              <span className="ml-2">Is Done</span>
+            </label>
         </div>
-
-        <div className="mt-4 flex justify-end gap-2">
-          <button className="px-3 py-1" onClick={onCancel}>Cancel</button>
-          <button
-            className="px-3 py-1 bg-indigo-600 text-white rounded"
-            onClick={() => onSubmit({ title, description, date: new Date(date), location })}
+          <div className="mt-4 flex justify-end gap-2">
+            <button className="px-3 py-1" onClick={onCancel}>Cancel</button>
+            <button
+              className="px-3 py-1 bg-indigo-600 text-white rounded"
+              onClick={() => onSubmit({ title, description, date: new Date(date), location, isDone })}
           >
             Save
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
