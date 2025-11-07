@@ -11,9 +11,16 @@ export default function AboutPage() {
       <div className="text-center mb-12">
         <div className="relative w-48 h-48 mx-auto mb-8">
           <div className="rounded-full bg-gray-200 w-full h-full flex items-center justify-center">
-            <svg className="h-24 w-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+            {/* <svg className="h-24 w-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
               <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
+            </svg> */}
+            <Image
+        src="/img/IMG_6325.JPG" // Path to the image
+        alt="Sample Image"
+        width={500} // The desired width of the image
+        height={300} // The desired height of the image        
+        className="rounded-full aspect-square object-cover"
+      />
           </div>
         </div>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('title')}</h1>
