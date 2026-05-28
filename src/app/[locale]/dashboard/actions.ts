@@ -10,7 +10,7 @@ export type DashboardData = {
 export async function getDashboardData(): Promise<DashboardData> {
   const [events, courses, donationsCountResult, donationsSumResult] = await Promise.all([
     prisma.event.count({where: { isDone: false }}),
-    prisma.course.count({ where: { startDate: { gt: new Date() } } }),
+    prisma.course.count({ where: { endDate: { gt: new Date() } } }),
     prisma.donation.count(),
     prisma.donation.aggregate({ _sum: { amount: true } }),
   ]);
