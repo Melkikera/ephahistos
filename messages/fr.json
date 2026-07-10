@@ -12,7 +12,25 @@
   "auth": {
     "signIn": "Connexion",
     "signOut": "Déconnexion",
-    "register": "S'inscrire"
+    "register": "S'inscrire",
+    "forgotPassword": "Mot de passe oublié ?"
+  },
+  "passwordRecovery": {
+    "forgotTitle": "Mot de passe oublié ?",
+    "forgotSubtitle": "Entrez votre e-mail pour recevoir un lien de réinitialisation.",
+    "emailLabel": "Adresse e-mail",
+    "sendButton": "Envoyer le lien",
+    "sending": "Envoi...",
+    "resetTitle": "Réinitialiser votre mot de passe",
+    "newPasswordLabel": "Nouveau mot de passe",
+    "confirmPasswordLabel": "Confirmer le nouveau mot de passe",
+    "resetButton": "Réinitialiser le mot de passe",
+    "saving": "Enregistrement...",
+    "missingToken": "Jeton de réinitialisation manquant dans l'URL",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "resetSuccess": "Mot de passe réinitialisé. Redirection vers la connexion...",
+    "requestSuccess": "Si un compte existe pour cet e-mail, un lien de réinitialisation a été généré.",
+    "commonError": "Une erreur est survenue"
   },
   "dashboard": {
     "welcome": "Bienvenue, {name}!",

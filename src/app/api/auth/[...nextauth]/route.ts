@@ -1,10 +1,8 @@
-import NextAuth, { Awaitable, NextAuthOptions, RequestInternal } from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
-import bcrypt, { compare } from "bcryptjs";
-import { JWT } from "next-auth/jwt";
-import { User } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 
 declare module "next-auth" {
@@ -50,7 +48,7 @@ export const authOptions: NextAuthOptions = {
       // return minimal object for session/jwt callbacks
       return {
         id: user.id,
-        name: user.name ?? undefined,
+        name: user.name,
         email: user.email,
         role: user.role
       };

@@ -11,7 +11,25 @@
   "auth": {
     "signIn": "Sign In",
     "signOut": "Sign out",
-    "register": "Register"
+    "register": "Register",
+    "forgotPassword": "Forgot password?"
+  },
+  "passwordRecovery": {
+    "forgotTitle": "Forgot your password?",
+    "forgotSubtitle": "Enter your email to receive a reset link.",
+    "emailLabel": "Email address",
+    "sendButton": "Send reset link",
+    "sending": "Sending...",
+    "resetTitle": "Reset your password",
+    "newPasswordLabel": "New password",
+    "confirmPasswordLabel": "Confirm new password",
+    "resetButton": "Reset password",
+    "saving": "Saving...",
+    "missingToken": "Missing reset token in URL",
+    "passwordMismatch": "Passwords do not match",
+    "resetSuccess": "Password reset successful. Redirecting to login...",
+    "requestSuccess": "If an account exists for this email, a password reset link has been generated.",
+    "commonError": "Something went wrong"
   },
   "dashboard": {
     "welcome": "Welcome, {name}!",

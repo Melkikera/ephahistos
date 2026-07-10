@@ -20,6 +20,30 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Password Reset Email (Resend)
+
+Set these environment variables to enable real password reset emails:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+RESET_FROM_EMAIL=no-reply@your-domain.com
+NEXTAUTH_URL=http://localhost:3000
+```
+
+If `RESEND_API_KEY` or `RESET_FROM_EMAIL` is missing, the app will keep the flow working but will log the reset link on the server.
+
+## Automated Password Reset Test
+
+1. Start the app (`npm run dev`).
+2. In another terminal, run:
+
+```bash
+npm run test:password-reset
+```
+
+The test calls the forgot-password and reset-password API routes and verifies the password hash changed in Prisma.
+For safety, token exposure is only enabled for explicit test requests (`x-e2e-test: true`) and never in production.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

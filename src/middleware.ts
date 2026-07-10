@@ -1,11 +1,9 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequestWithAuth } from 'next-auth/middleware';
 
 const locales = ['en', 'fr'];
-const publicPages = ['/', '/login', '/register'];
+const publicPages = ['/', '/login', '/register', '/forgot-password', '/reset-password'];
 const protectedPages = ['/events', '/donations', '/courses', '/dashboard'];
 
 const intlMiddleware = createIntlMiddleware({
@@ -13,7 +11,7 @@ const intlMiddleware = createIntlMiddleware({
   defaultLocale: 'en'
 });
 
-export default async function middleware(request: NextRequestWithAuth, event: any) {
+export default async function middleware(request: NextRequestWithAuth, event: unknown) {
   const pathname = request.nextUrl.pathname;
 
   // Normalize pathname by stripping a leading locale segment (e.g. /en, /fr)
@@ -27,7 +25,7 @@ export default async function middleware(request: NextRequestWithAuth, event: an
   // Explicitly check protected pages
   if (protectedPages.some(page => normalizedPath.startsWith(page))) {
     return withAuth(
-      function middleware(req, event) {
+      function middleware(req) {
         return intlMiddleware(req);
       },
       {
@@ -38,12 +36,12 @@ export default async function middleware(request: NextRequestWithAuth, event: an
           signIn: '/login',
         }
       }
-    )(request, event);
+    )(request, event as never);
   }
 
   // Handle all other pages with auth and internationalization
   return withAuth(
-    function middleware(req, event) {
+    function middleware(req) {
       return intlMiddleware(req);
     },
     {
@@ -55,7 +53,7 @@ export default async function middleware(request: NextRequestWithAuth, event: an
         signIn: '/login',
       }
     }
-  )(request, event);
+  )(request, event as never);
 }
 
 export const config = {
