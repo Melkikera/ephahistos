@@ -1,5 +1,8 @@
 'use client';
 
+import Image from "next/image";
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <div className="relative isolate overflow-hidden bg-white">
@@ -13,21 +16,21 @@ export default function HomePage() {
             Join our mission to create a brighter future for the next generation.
           </p>
           <div className="mt-10 flex items-center gap-x-6">
-            <a
+            <Link
               href="/register"
               className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Get started
-            </a>
-            <a href="/about" className="text-sm font-semibold leading-6 text-gray-900">
+            </Link>
+            <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900">
               Learn more <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
             <div className="h-[400px] w-[600px] bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">
-              Placeholder for hero image
+              <Image src="/img/hero-image.jpg" alt="Hero Image" className="h-full w-full object-cover rounded-lg" width={600} height={400}  loading="eager" />
             </div>
           </div>
         </div>
